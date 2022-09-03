@@ -46,7 +46,7 @@ contract CoinToss is VRFConsumerBase {
         require(address(this).balance >= 1, "Start conditions not met");
         require(LINK.balanceOf(address(this)) >= fee, "Not enough LINK");
 
-        // If the amount sent by the user is larger than the contract's current balance, return the amount to the user.
+        // If the amount sent by the user is larger than the contract's current balance, return the betAmount to the user.
         if (playerStatus[msg.sender].betAmount > address(this).balance) {
             payable(address(this)).transfer(playerStatus[msg.sender].betAmount);
         } else {
